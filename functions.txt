@@ -1,0 +1,20 @@
+----------------------------------------
+gtk_init(int *,  char ***);
+使用例（適切な型のargc, argvが存在すると仮定）:
+gtk_main(&argc, &argv);
+
+----------------------------------------
+gtk_main();
+使用例:
+gtk_main();
+
+----------------------------------------
+gtk_widget_show(ウィジェット);
+使用例（変数xが存在すると仮定）:
+gtk_widget_show(x);
+
+----------------------------------------
+gtk_window_new(GTK_WINDOW_TOPLEVEL);
+使用例（変数xが存在すると仮定）:
+x = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+
