@@ -4,6 +4,12 @@ gtk_box_pack_start(GTK_BOX(親)、子、引数3、引数4、引数5)
 gtk_box_pack_start(GTK_BOX(b), c, FALSE, TRUE, 10);
 
 ----------------------------------------
+gtk_button_new();
+ボタンをnewする
+使用例（変数xが存在すると仮定）:
+x = gtk_button_new();
+
+----------------------------------------
 gtk_container_add(GTK_CONTAINER(ウィンドウ), ウィジェット)
 使用例（変数w、xが存在すると仮定）：
 gtk_container_add(GTK_CONTAINER(w), x);
