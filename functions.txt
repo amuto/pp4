@@ -15,6 +15,22 @@ gtk_container_add(GTK_CONTAINER(ウィンドウ), ウィジェット)
 gtk_container_add(GTK_CONTAINER(w), x);
 
 ----------------------------------------
+gdk_draw_rectangle(GdkDrawable型の引数1,
+	                   GdkGC型の引数2, 真偽値,
+	                   int型の描画開始点x, int型の描画開始点y,
+	                   int型の幅w, int型の高さh);
+\end{lstlisting}
+第1引数に対して，第2引数の描画データ構造体を使って，第3引数で塗り潰すかどうかを指定して，第1引数で与
+えられるウィジェットの原点（左上）から(x,y)離れた所に(w, h)の大きさの長方形を描画する
+使用例（変数xが存在すると仮定）：
+gdk_draw_rectangle(x->window, x->style->fg_gc[GTK_WIGDET_STATE(x)], TRUE, 20, 20, 200, 300)
+
+----------------------------------------
+gtk_drawing_area_new();
+使用例（変数xが存在すると仮定）：
+x = gtk_drawing_area_new();
+
+----------------------------------------
 gtk_hbox_new(真偽値, 間隔指定整数)
 使用例（変数xが存在すると仮定）:
 x = gtk_hbox_new(TRUE, 10);
@@ -51,6 +67,12 @@ g_signal_connect(w, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 gtk_vbox_new(真偽値, 間隔指定整数)
 使用例（変数xが存在すると仮定）:
 x = gtk_vbox_new(TRUE, 10);
+
+----------------------------------------
+gtk_widget_add_events(ウィジェット, シグナル種別);
+シグナルに対するコールバックをウィジェットに追加する
+使用例（変数xが存在すると仮定）:
+gtk_widget_add_events(x, GDK_BUTTON_PRESS_MASK);
 
 ----------------------------------------
 gtk_widget_show(ウィジェット);
