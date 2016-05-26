@@ -74,6 +74,12 @@ gtk_widget_add_events(ウィジェット, シグナル種別);
 gtk_widget_add_events(x, GDK_BUTTON_PRESS_MASK);
 
 ----------------------------------------
+gtk_widget_set_size_request(ウィジェット, 幅, 高さ)
+ウィジェットの大きさを指定する
+使用例（変数xが存在すると仮定）:
+gtk_widget_set_size_request(x, 200, 400);
+
+----------------------------------------
 gtk_widget_show(ウィジェット);
 使用例（変数xが存在すると仮定）:
 gtk_widget_show(x);
