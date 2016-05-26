@@ -17,13 +17,15 @@ int main(int argc, char **argv)
   gtk_box_pack_start(GTK_BOX(box1), l1, FALSE, TRUE, 10);
   gtk_widget_show(l1);
 
-  l2 = gtk_label_new("Label2");
-  gtk_box_pack_start(GTK_BOX(box1), l2, TRUE, FALSE, 10);
-  gtk_widget_show(l2);
-
   box2 = gtk_vbox_new(FALSE,10);
   gtk_box_pack_start(GTK_BOX(box1), box2, FALSE, TRUE, 10);
   gtk_widget_show(box2);
+
+  l2 = gtk_drawing_area_new();
+  gtk_box_pack_start(GTK_BOX(box2), l2, TRUE, FALSE,10);
+  gtk_widget_set_size_request(box2, 400,200);
+
+  gtk_widget_show(l2);
  
   box3 = gtk_hbox_new(FALSE,10);
   gtk_box_pack_start(GTK_BOX(box1), box3, FALSE, TRUE, 10);
