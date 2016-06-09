@@ -10,7 +10,7 @@ gtk_button_new();
 x = gtk_button_new();
 
 ----------------------------------------
-gtk_container_add(GTK_CONTAINER(ウィンドウ), ウィジェット)
+gtk_container_add(GTK_CONTAINER(ウィンドウまたはボタン), ウィジェット);
 使用例（変数w、xが存在すると仮定）：
 gtk_container_add(GTK_CONTAINER(w), x);
 
@@ -51,7 +51,7 @@ gtk_main();
 gtk_main();
 
 ----------------------------------------
-gt_main_quit();
+gtk_main_quit();
 仕様例：
 gtk_main_quit();
 
@@ -61,6 +61,13 @@ g_signal_connect(ウィジェット, シグナル, G_CALLBACK(関数), NULL);
 シグナルは特定の文字列
 使用例（変数wが存在すると仮定）:
 g_signal_connect(w, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+----------------------------------------
+g_timeout_add(ミリ秒（int型）, 関数, NULL);
+タイムアウトイベントが起きた時のコールバック関数を登録する。ただしここで登録するコールバック関数は「返値がgboolean型で、引数がgpointer型の1引数関数」でなければならない。演習においては、関数の引数を関数の中で使う必要はない。
+タイムアウトとはユーザーが操作しなくなってから一定時間が経過すること。
+使用例（返値型がgboolean, 引数がgpointer型の1引数関数fが存在すると仮定）：
+g_timeout_add(100, f, NULL);
 
 ----------------------------------------
 gtk_vbox_new(真偽値, 間隔指定整数)
@@ -74,6 +81,12 @@ gtk_widget_add_events(ウィジェット, シグナル種別);
 gtk_widget_add_events(x, GDK_BUTTON_PRESS_MASK);
 
 ----------------------------------------
+gtk_widget_set_size_request(ウィジェット, 幅, 高さ)
+ウィジェットの大きさを指定する
+使用例（変数xが存在すると仮定）:
+gtk_widget_set_size_request(x, 200, 400);
+
+----------------------------------------
 gtk_widget_show(ウィジェット);
 使用例（変数xが存在すると仮定）:
 gtk_widget_show(x);
@@ -82,4 +95,3 @@ gtk_widget_show(x);
 gtk_window_new(GTK_WINDOW_TOPLEVEL);
 使用例（変数xが存在すると仮定）:
 x = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-
