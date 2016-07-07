@@ -3,8 +3,9 @@
 #include "basetypes.h"
 
 int na;
+int q;
 
-/* Mokuteki: start ni hajimari, required jikan no jikkou wo suru, atarashi process no PCB wo tukuri, sore wo kaesu */
+/* 目的: start に始まり, required　時間の実行をする,  新しいプロセスの PCB を作り, それを返す */
 PCB *pcb_new (int start, int required)
 {
   PCB *p = (PCB *)malloc(sizeof(PCB));
@@ -18,7 +19,7 @@ PCB *pcb_new (int start, int required)
   return p;
 }
 
-/* Mokuteki:  q no saigo ni pcb wo tuika suru. return void */
+/* 目的:  q の最後に pcb を追加する. void を返す*/
 void pcb_enqueue(PCB *p, PCB **q)
 {
   if (*q == p) {
@@ -41,9 +42,12 @@ void pcb_enqueue(PCB *p, PCB **q)
   }
 }
 
-/* Mokuteki:  q no sentou no PCB wo return site, q ha sentou no ikko wo totta nokori ni naru */
+/* 目的:  q の先頭の PCB を return して, q は先頭の一個を取った残りになる */
 PCB *pcb_dequeue(PCB **q)
 {
+
+  int p;
+  PCB *q;
   PCB *pcb;
   if (! q)
     return NULL;
@@ -52,7 +56,7 @@ PCB *pcb_dequeue(PCB **q)
   return p;
 }
 
-/* Mokuteki: q no nakakara start_time ga t no monowo subete sakujo suru */
+/* 目的: q の中から start_time が t のものを全て削除する*/
 void pcb_removeAllStartAt(int t, PCB **q)
 {
   PCB *n, *b;
@@ -74,14 +78,14 @@ void pcb_removeAllStartAt(int t, PCB **q)
   }
 }
 
-/* Mokuteki: q no nakakara p wo sagashite sakujo suru */
+/* 目的: q の中から p を探して削除する */
 void pcb_remove(PCB *p, PCB **q)
 {
   PCB *n, *b;
-  if (*q == NULL){		/* tokubetu na baai 1 */
+  if (*q == NULL){		/* 特別な場合 1 */
       return;
   }
-  if (*q == p) {		/* tokubetu na baai 2 */
+  if (*q == p) {		/* 特別な場合 2 */
       *q = (*q)->next;
       return;
   }
@@ -99,7 +103,7 @@ void pcb_remove(PCB *p, PCB **q)
   }
 }
 
-/* Mokuteki: PCB no queue no sentou top ga ataeraretara queue no juni PCB wo hyouji suru */
+/* 目的: PCB の queue の先頭 top が与えられたら queue の順に PCB を表示する */
 void pcb_print_list(PCB *top)
 {
   if (top == NULL) {
@@ -114,13 +118,4 @@ void pcb_print_list(PCB *top)
     }
   }
   printf("\n");
-}
-
-int
-main (void)
-{
-  PCB *q1 = NULL;
-  printf("OK\n");
-
-  return 0;
 }
