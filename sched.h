@@ -27,5 +27,11 @@ void sched_dispatcher (PCB *);
 int sched_create_process(int, int);
 int sched_terminate_current_process(void);
 void sched_print(void);
-double monitor_average_turnaround_time (void);
 
+/* monitor block */
+void monitor_initialize ();
+void monitor_allocation();
+extern PCB** monitor_allocation_history(void);
+void monitor_process_allocate(PCB *);
+void monitor_process_terminate(PCB *);
+double monitor_average_turnaround_time (void);
