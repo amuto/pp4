@@ -17,7 +17,6 @@ extern PCB *sched_ready_queue;
 extern PCB *sched_start_list;
 extern PCB *sched_finished_list;
 extern int sched_last_pid;		/* the last used pid */
-extern PCB** monitor_allocation_history(void);
 
 void sched_set_scheduler (SchedulerType);
 SchedulerType sched_get_scheduler (void);
